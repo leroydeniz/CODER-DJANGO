@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Listar familiares</title>
+</head>
+<body>
+    <h2 style="text-align: center;margin-top:50px;">Familiares</h2><hr/>
+    <table class="table table-hover" style="max-width:800px;margin: 0 auto;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Parentezco</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Registro</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for familiar in familiares %}
+            <tr>
+                <th scope="row">#{{familiar.id}}</th>
+                <td>{{familiar.nombre}}</td>
+                <td>{{familiar.parentezco}}</td>
+                <td>{{familiar.tel}}</td>
+                <td>{{familiar.peso}} kg</td>
+                <td>{{familiar.registro}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</body>
+</html>

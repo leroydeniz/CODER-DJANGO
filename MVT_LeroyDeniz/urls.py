@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from familiares.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('nuevo_familiar/', nuevo_familiar, name='nuevo_familiar'),
+    path('listar_familiares/', listar_familiares, name='listar_familiares'),
+    path('borrar_familiares/', borrar_familiares, name='borrar_familiares'),
 ]

@@ -3,17 +3,18 @@ from django.shortcuts import render
 from familiares.models import Familiares
 
 # Create your views here.
-def crear_familiar(request):
+def nuevo_familiar(request):
     """
     Vista constructura de los objetos Familiares
     """
 
     # Crear el objeto en BD
-    nuevo_familiar = Familiares.objects,create(nombre="Nombre del familiar 1", tel = 456985267, peso=65.6)
+    #nuevo_familiar = Familiares.objects.create(nombre="Juan Carlos", parentezco="Abuelo", tel = 123456, peso=80.5)
+    nuevo_familiar = Familiares.objects.create(nombre="Manuel", parentezco="Hermano", tel = 345678, peso=55.8)
     
     # Definir el contexto a renderizar
     contexto = {
-        "nuevo_familar" : nuevo_familiar
+        "nuevo_familiar" : nuevo_familiar
     }
 
     # Renderizar el resultado
@@ -35,3 +36,15 @@ def listar_familiares(request):
 
     # Renderizar el resultado
     return render(request, 'listar_familiares.html', contexto)
+
+
+def borrar_familiares(request):
+    """
+    Vista para limpiar la base de datos de familiares
+    """
+
+    # ELiminar los datos
+    Familiares.objects.all().delete()
+
+    # Renderizar el resultado
+    return render(request, 'borrar_familiares.html', context={})
